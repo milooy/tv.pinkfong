@@ -1,0 +1,143 @@
+/*TODO
+변수 CSS마다 반복?
+*/
+@highdensity: ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+              ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
+              ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
+              ~"only screen and (min-device-pixel-ratio: 1.5)";
+@mobile:      ~"only screen and (max-width: 35em)";
+@tablet:      ~"only screen and (min-width: 36em) and (max-width: 48em)";
+@desktop:     ~"only screen and (min-width: 49em) and (max-width: 63em)";
+@desktop-xl:  ~"only screen and (min-width: 64em)";
+
+@fong-pink: #ff3399;
+@fong-yellow: #ffdd00;
+@dark-gray: #4a4949;
+@light-gray: #666666;
+@more-light-gray: #c9c9c9;
+
+.animate {
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden; /* Chrome and Safari */
+    -moz-backface-visibility:hidden; /* Firefox */
+    -ms-backface-visibility:hidden; /* Internet Explorer */
+}
+
+.container ul:first-child {
+    padding-top: 5em;
+}
+
+/* -- 공유하기 -- */
+.video-share-container {
+    border-left: 1px solid @more-light-gray;
+}
+.video-share {
+    font-size: 20px;
+    text-align: center;
+    color: @more-light-gray;
+
+    a {
+        color: white;
+        display: inline-block;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        padding-top: 13px;
+        margin: 5px;
+        color: @more-light-gray;
+        border: 1px solid @more-light-gray;
+        .animate;
+        transition-property: background-color, color;
+        cursor: pointer;
+    }
+    .color-border {
+        color: white;
+        border: none;
+    }
+    .i-link-ext {
+        &:hover{
+            .color-border;
+            background-color: #FF7E01
+        };
+    }
+    .i-facebook {
+        &:hover{
+            .color-border;
+            background-color: #3C599B;
+        }
+    }
+    .i-kakao_story {
+        &:hover{
+            .color-border;
+            background-color: #FBCC2F;
+        }
+    }
+    .i-naver-blog {
+        &:hover{
+            .color-border;
+            background-color: #52A434;
+        }
+    }
+    .i-link{
+        &:hover{
+            .color-border;
+            background-color: #00C9DE;
+        }
+    }
+}
+
+
+/* -- SEE MORE -- */
+.video-desc {
+    position: relative;
+    overflow: hidden;
+    margin: 30px 0;
+    padding: 20px 20px 4em 20px;
+    background: #FFF;
+    font-family: "Open Sans", sans-serif;
+    border-top: 1px solid #c9c9c9;
+    p {
+        margin: 0 0 1.5em;
+    }
+
+
+    .more-link {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        padding: 4px;
+        background: white;
+        color: @more-light-gray;
+        border-bottom: 1px solid @more-light-gray;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.4s ease;
+    }
+
+    .more-link:hover {
+        background: @more-light-gray;
+        color: white;
+    }
+
+    .more-link:after {
+        content: "\2193";
+        margin-left: 8px;
+        font-size: .8em;
+    }
+
+    .more-link.open:after {
+        content: "\2191";
+    }
+
+}
+

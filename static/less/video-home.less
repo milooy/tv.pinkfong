@@ -1,0 +1,77 @@
+/*TODO
+변수 CSS마다 반복?
+*/
+@highdensity: ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+              ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
+              ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
+              ~"only screen and (min-device-pixel-ratio: 1.5)";
+@mobile:      ~"only screen and (max-width: 35em)";
+@tablet:      ~"only screen and (min-width: 36em) and (max-width: 48em)";
+@desktop:     ~"only screen and (min-width: 49em) and (max-width: 63em)";
+@desktop-xl:  ~"only screen and (min-width: 64em)";
+
+@fong-pink: #ff3399;
+@fong-yellow: #ffdd00;
+@dark-gray: #4a4949;
+@light-gray: #666666;
+
+@splash-height: 300px;
+
+/* -- Splash -- */
+.splash-container {
+    background: #80A8CC;
+    height: @splash-height;
+}
+.splash-head {
+    font-size: 50px;
+    border: none;
+}
+
+.content-wrapper {
+    top: @splash-height;
+}
+
+
+.nav-series {
+    display: flex;
+    flex-dirction: row;
+    // font-size: 1.5em;
+    img {
+        width: 50%;
+        // border-radius: 50%;
+        border-radius: 1em;
+    }
+    a {
+        width:25%;
+        text-align: center;
+        padding: 25px 20px;
+        text-decoration: none;
+        margin: auto;
+        position:relative;
+        color: @light-gray;
+        transition: all .3s linear;
+        &:hover, &.active{
+            color: @fong-pink; //links have an "active" class or hover change to white
+        }
+        &:after {  //we'll use the :after pseude element to create our bulb!
+            content: ''; //all pseudo element MUST have a content declaration!
+            @size: 8px;
+            width: @size;
+            height: @size;
+            background: @fong-pink;
+            display: inline-block;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -@size/2; //offset the bulb to center it perfectly
+            border-radius:50%;
+            transform: scale(0);
+            transition: transform .3s cubic-bezier(0.610, 0.000, 0.405, 1.630);
+        }
+        &.active:after{
+          transform: scale(1); //when the link is active lets scale upo that bulb!
+        }
+    }
+}
+
+

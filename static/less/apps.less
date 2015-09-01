@@ -1,0 +1,35 @@
+@highdensity: ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+              ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
+              ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
+              ~"only screen and (min-device-pixel-ratio: 1.5)";
+@mobile:      ~"only screen and (max-width: 35em)";
+@tablet:      ~"only screen and (min-width: 36em) and (max-width: 48em)";
+@desktop:     ~"only screen and (min-width: 49em) and (max-width: 63em)";
+@desktop-xl:  ~"only screen and (min-width: 64em)";
+
+@fong-pink: #ff3399;
+@fong-yellow: #ffdd00;
+@dark-gray: #4a4949;
+@light-gray: #666666;
+
+@splash-height: 300px;
+
+/* -- Splash -- */
+.splash-container {
+    background: #baf4f6;
+    height: @splash-height;
+}
+.content-wrapper {
+    top: @splash-height;
+}
+.splash-head {
+    font-size: 50px;
+    border: none;
+}
+
+/* -- 3개 라인 -- */
+ul.apps:nth-child(n+3) {
+  li .app-icon {
+    width: 5em;
+  }
+}
