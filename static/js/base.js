@@ -36,5 +36,32 @@ $(document).ready(function() {
     $('.social-toggle').on('click', function() {
       $(this).next().toggleClass('open-menu');
     });
+
+    // 모바일시 우측 하단 메뉴
+    $('.i-menu').on('click', function() {
+      // $(this).closest('.home-menu').toggleClass('menu-toggle');
+      // $(this).closest('.home-menu').find('ul').animate({
+      //   'top': '-=220px'
+
+      // }, 'slow');
+      // $(this).closest('.home-menu').find('ul').slideToggle('slow');
+
+      $(this).closest('.home-menu').find('ul').toggle(
+          function(){
+              console.log("hahahahaha");
+              debugger;
+              $('this').animate({
+                  // 'top': '-=220px'
+                  'bottom': '+=220px'
+
+              }, 500);
+          },
+          function(){
+              $('this').animate({
+                  'bottom': '0px',
+                  // opacity: 0
+              }, 500);
+      });
+    });
 });
 

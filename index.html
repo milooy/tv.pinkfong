@@ -31,10 +31,12 @@
 
     </head>
     <body>
-        <nav class="header">
-            <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+
+        <nav class="nav-header">
+            <div class="home-menu pure-menu pure-menu-horizontal">
                 <div class="menu-contents">
                 <a class="pure-menu-heading" href="/">Pinkfong</a>
+                <div class="i-menu"><i class="icon-menu"></i></div>
                 <ul class="pure-menu-list">
                     <li class="pure-menu-item pure-menu-selected"><a href="/" class="pure-menu-link">홈</a></li>
                     <li class="pure-menu-item"><a href="/video" class="pure-menu-link">동영상</a></li>
@@ -112,29 +114,35 @@
         </div>
         <div class="container">
             <ul class="apps pure-g">
-                <li class="col head-col pure-u-1">
-                   <img class="banner" src="../static/img/app-banner-long-1.png">
+                <li class="pure-u-1">
+                    <img class="banner" src="../static/img/app-banner-long-1.png">
                     <div class="app-desc l-desc pure-g">
-                        <div class="app-header pure-u-1-2">
+                        <div class="app-header pure-u-1-1 pure-u-md-1-2">
                             <img class="app-icon" src="../static/img/app-icon.png">
                             <div class="app-title">
                                 <div>자동차들과 함께 노래해요</div>
                                 <h3>핑크퐁! 자동차 동요 마을</h3>
                             </div>
                         </div>
-                        <div class="pure-u-1-2">
+                        <div class="pure-u-1-1 pure-u-md-1-2">
                             <div class="app-text">
                                 <p>자동차들과 함께 노래하고, 직접 운전하며 좋아하는 자동차들의 이름과 하는 일을 인지하고 배우게 된답니다.</p>
-                                <div class="download-group"><div class="download-trigger">DOWNLOAD</div><div class="download-btns"><a href="#" class="download-btn icon-appstore"></a><a href="#" class="download-btn icon-googleplay"></a><a href="#"  class="download-btn icon-amazon"></a><a href="#" class="download-btn icon-appstore"></a><a href="#" class="download-btn icon-googleplay"></a></div></div>
+                                <div class="download-group"><div class="download-trigger"><!-- <i class="icon-download-alt"></i> -->DOWNLOAD</div><div class="download-btns"><a href="#" class="download-btn i-appstore"><i class="icon-appstore"></i></a><a href="#" class="download-btn i-googleplay"><i class="icon-googleplay"></i></a><a href="#" class="download-btn i-amazon"><i class="icon-amazon"></i></a><a href="#" class="download-btn i-baidu"><i class="icon-baidu"></i></a><a href="#" class="download-btn i-xiaomi"><i class="icon-xiaomi"></i></a></div></div>
                             </div>
                         </div>
                     </div>
                 </li>
             </ul>
             <ul class="apps pure-g gutters">
-                <li class="col pure-u-1-2">
-                   <img class="banner" src="../static/img/app-banner-2.png">
-                   <div class="app-desc l-desc">
+                <li class="pure-u-1-1 pure-u-md-1-2">
+                    <a class="download-link" href="/apps">
+                    <div class="banner-wrapper">
+                        <img class="banner" src="../static/img/app-banner-2.png">
+                        <div class="overlay">
+                            <div class="i-download"><i class="icon-down-circled"></i></div>
+                        </div>
+                    </div>
+                    <div class="app-desc l-desc">
                        <div class="app-header">
                             <img class="app-icon" src="../static/img/app-icon-2.png">
                             <div class="app-title">
@@ -142,23 +150,17 @@
                                 <h3>핑크퐁! 공룡 월드</h3>
                             </div>
                         </div>
-                        <section class="pen">
-                            <div class="more-button">
-                                <div>DOWNLOAD</div>
-                                <div class="container">
-                                    <a href="#" class="share-btn icon-appstore"></a>
-                                    <a href="#" class="share-btn icon-googleplay"></a>
-                                    <a href="#"  class="share-btn icon-amazon"></a>
-                                    <a href="#" class="share-btn icon-appstore"></a>
-                                    <a href="#" class="share-btn icon-googleplay"></a>
-                                    <a href="#"  class="share-btn icon-amazon"></a>
-                                </div>
-                            </div>
-                        </section>
                    </div>
+                   </a>
                 </li>
-                <li class="col pure-u-1-2">
-                    <img class="banner" src="../static/img/app-banner-3.png">
+                <li class="pure-u-1-1 pure-u-md-1-2">
+                    <a class="download-link" href="/apps">
+                    <div class="banner-wrapper">
+                        <img class="banner" src="../static/img/app-banner-3.png">
+                        <div class="overlay">
+                            <div class="i-download"><i class="icon-down-circled"></i></div>
+                        </div>
+                    </div>
                     <div class="app-desc l-desc">
                         <div class="app-header">
                             <img class="app-icon" src="../static/img/app-icon-3.png">
@@ -168,6 +170,7 @@
                             </div>
                         </div>
                     </div>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -188,36 +191,34 @@
             </section>
 
             <ul class="videos pure-g">
-                <li class="col head-col pure-u-1">
+                <li class="pure-u-1">
                     <div class="video-main">
                         <div class="video-container banner">
                             <iframe width="560" height="720" src="https://www.youtube.com/embed/kJ1UczeeEEM?controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
-                    <div class="pure-g">
-                        <div class="l-desc">
-                            <div class="video-header pure-u-1-2">
-                                <img class="video-icon" src="../static/img/series-icon.png">
-                                <!-- <div class="video-title">
-                                    <h3>Seven Days</h3>
-                                    <div>워드파워</div>
-                                </div> -->
-                                <div class="video-title">
-                                    <div class="tags">
-                                        <span class="tag">자동차 동요</span>
-                                        <span class="tag">인기동요</span>
-                                    </div>
-                                    <h3>Seven Days</h3>
+                    <div class="pure-g l-desc">
+                        <div class="video-header pure-u-1-1 pure-u-md-1-2">
+                            <img class="video-icon" src="../static/img/series-icon.png">
+                            <!-- <div class="video-title">
+                                <h3>Seven Days</h3>
+                                <div>워드파워</div>
+                            </div> -->
+                            <div class="video-title">
+                                <div class="tags">
+                                    <span class="tag">자동차 동요</span>
+                                    <span class="tag">인기동요</span>
                                 </div>
+                                <h3>Seven Days</h3>
                             </div>
-                            <div class="pure-u-1-2">
-                                <div class="video-text">
-                                    <p>자동차들과 함께 노래하고, 직접 운전하며 좋아하는 자동차들의 이름과 하는 일을 인지하고 배우게 된답니다.</p>
-                                    <div class="video-btn">
-                                        <script src="https://apis.google.com/js/platform.js"></script>
-                                        <div class="g-ytsubscribe" data-channel="pinkfongko" data-layout="default" data-count="default"></div>
-                                        <div class="show-more">+더보기</div>
-                                    </div>
+                        </div>
+                        <div class="pure-u-1-1 pure-u-md-1-2">
+                            <div class="video-text">
+                                <p>자동차들과 함께 노래하고, 직접 운전하며 좋아하는 자동차들의 이름과 하는 일을 인지하고 배우게 된답니다.</p>
+                                <div class="video-btn">
+                                    <script src="https://apis.google.com/js/platform.js"></script>
+                                    <div class="g-ytsubscribe" data-channel="pinkfongko" data-layout="default" data-count="default"></div>
+                                    <div class="show-more">+더보기</div>
                                 </div>
                             </div>
                         </div>
@@ -225,7 +226,7 @@
                 </li>
             </ul>
             <ul class="videos pure-g gutters">
-                <li class="col pure-u-1-2">
+                <li class="pure-u-1-1 pure-u-md-1-2">
                    <img class="banner" src="http://img.youtube.com/vi/mff1HGsFqK8/maxresdefault.jpg">
                     <div class="video-header l-desc">
                         <div class="video-title">
@@ -238,7 +239,7 @@
                     </div>
 
                 </li>
-                <li class="col pure-u-1-2">
+                <li class="pure-u-1-1 pure-u-md-1-2">
                     <img class="banner" src="http://img.youtube.com/vi/JnxwbY07jmY/maxresdefault.jpg">
                     <div class="video-header l-desc">
                         <div class="video-title">

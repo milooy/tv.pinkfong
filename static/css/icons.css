@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icons';
-  src: url('../font/icons.eot?21373401');
-  src: url('../font/icons.eot?21373401#iefix') format('embedded-opentype'),
-       url('../font/icons.woff?21373401') format('woff'),
-       url('../font/icons.ttf?21373401') format('truetype'),
-       url('../font/icons.svg?21373401#icons') format('svg');
+  src: url('../font/icons.eot?32084050');
+  src: url('../font/icons.eot?32084050#iefix') format('embedded-opentype'),
+       url('../font/icons.woff?32084050') format('woff'),
+       url('../font/icons.ttf?32084050') format('truetype'),
+       url('../font/icons.svg?32084050#icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'icons';
-    src: url('../font/icons.svg?21373401#icons') format('svg');
+    src: url('../font/icons.svg?32084050#icons') format('svg');
   }
 }
 */
@@ -62,4 +62,7 @@
 .icon-appstore:before { content: '\e805'; } /* '' */
 .icon-googleplay:before { content: '\e806'; } /* '' */
 .icon-amazon:before { content: '\e807'; } /* '' */
-.icon-download-alt:before { content: '\e808'; } /* '' */
+.icon-down-circled:before { content: '\e808'; } /* '' */
+.icon-baidu:before { content: '\e809'; } /* '' */
+.icon-xiaomi:before { content: '\e80a'; } /* '' */
+.icon-menu:before { content: '\e80b'; } /* '' */
