@@ -3,7 +3,7 @@
               ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
               ~"only screen and (min-device-pixel-ratio: 1.5)";
 @mobile:      ~"only screen and (max-width: 35em)";
-@tablet:      ~"only screen and (min-width: 36em) and (max-width: 48em)";
+@tablet:      ~"only screen and (min-width: 35em) and (max-width: 48em)";
 @desktop:     ~"only screen and (min-width: 48em) and (max-width: 63em)";
 @desktop-xl:  ~"only screen and (min-width: 63em)";
 
@@ -49,8 +49,7 @@
 /* -- web font --*/
 body,
 .pure-g [class *="pure-u"] {
-    font-family: 'Noto Sans' ,'Noto Sans Korean', sans-serif !important;
-
+    font-family: 'Helvetica', 'Tahoma', 'Arial', 'Microsoft YaHei New', 'Microsoft Yahei', '微软雅黑', '宋体', 'SimSun', 'STXihei', '华文细黑', sans-serif !important;
     // beautify Font
     font-smooth: always;
     font-smoothing: antialiased;
@@ -68,7 +67,7 @@ ul, li, ol {
 }
 body {
     color: @text-grey;
-    line-height: 180%;
+    line-height: 167%;
     font-size: 13px;
     font-weight: lighter;
     @media @desktop, @desktop-xl {
@@ -90,6 +89,17 @@ a {
     -ms-transition: all .3s;
     -ms-transition: all .3s;
     transition: all .3s;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden; /* Chrome and Safari */
+    -moz-backface-visibility:hidden; /* Firefox */
+    -ms-backface-visibility:hidden; /* Internet Explorer */
+}
+.animate-download {
+    -webkit-transition: opacity, width .3s;
+    -moz-transition: opacity, width .3s;
+    -ms-transition: opacity, width .3s;
+    -ms-transition: opacity, width .3s;
+    transition: opacity, width .3s;
     backface-visibility:hidden;
     -webkit-backface-visibility:hidden; /* Chrome and Safari */
     -moz-backface-visibility:hidden; /* Firefox */
@@ -130,7 +140,7 @@ a {
 }
 .container ul {
     overflow-x: hidden;
-    padding: 1em;
+    padding: 0 1em;
     &:nth-of-type(1) {
         li {
             @media @mobile, @tablet {
@@ -140,18 +150,18 @@ a {
     }
     li {
         @media @mobile, @tablet {
-            padding-bottom: 3em !important;
+            padding-bottom: 0em !important;
         }
     }
 }
 .l-desc { //디스크립션 레이아웃. 양 옆에 컨텐츠보다 좀 더 작은 패딩을 준다.
-    padding: 0 10px;
-    margin-top: 10px;
+    padding: 0px;
+    margin: 20px 0 10px 0;
 }
 
 .banner {
     width: 100%;
-    margin-bottom: 0.3em;
+    margin: 2em 0 0.3em 0;
 }
 button.goto { // GO 버튼
     display: block;
@@ -245,9 +255,8 @@ button.goto { // GO 버튼
             cursor: pointer;
             .animate;
             i {
-                vertical-align: sub;
+                vertical-align: middle;
             }
-
         }
         &.menu-toggle {
             .i-menu {
@@ -255,14 +264,13 @@ button.goto { // GO 버튼
             }
             .pure-menu-list {
                 display: block;
-                top: -220px;
+                // top: -220px;
             }
         }
         .pure-menu-list {
-            // display: none;
-            // display: block;
-            // top: -220px;
+            z-index: 2;
             right: 7px;
+            top: 25px;
             .animate;
             li {
                 display: block;
@@ -282,7 +290,6 @@ button.goto { // GO 버튼
                     color: white;
                     padding: 0;
                 }
-
             }
         }
     }
@@ -300,23 +307,16 @@ button.goto { // GO 버튼
     overflow: hidden;
     /* 스크롤오버 효과 */
     width: 100%;
-    // height: @splash-hight;
     height: auto;
-    top: 0;
+    top: -20px;
     left: 0;
     position: fixed !important;
-
-    // background-image: url('../img/carousel-1.jpg');
-    // .carousel-img {
-    //     width: 100%;
-    // }
     #main-carousel .item img{
         display: block;
         width: 100%;
         height: auto;
         position: relative;
     }
-
     .splash {
         // width: 50%;
         // height: 50%;
@@ -346,10 +346,11 @@ button.goto { // GO 버튼
 /* -- HEADER -- */
 .header { // 하얀색 지그재그
     position: absolute;
-    top: -64px;
-    height: 65px;
+    top: -63px;
+    height: 64px;
     width: 100%;
     background-image: url('../img/white-mountain.png');
+    background-position: left center;
 }
 .pinkfong { //가운데 핑크퐁
     position: absolute;
@@ -359,10 +360,24 @@ button.goto { // GO 버튼
     margin: auto;
     width: 20%;
     // width: 120px;
+    min-width: 100px;
+    max-width: 130px;
+    @media @mobile {
+        top: -85px;
+    }
+}
+.pinkfong_cn { //펑펑후
+    position: absolute;
+    top: 66px;
+    left: 21px;
+    right: 0;
+    margin: auto;
+    width: 20%;
+    // width: 120px;
     min-width: 120px;
     max-width: 150px;
     @media @mobile {
-        top: -100px;
+        top: 48px;
     }
 }
 
@@ -375,7 +390,6 @@ button.goto { // GO 버튼
     min-height: 12%;
     z-index: 2;
     background: white;
-
     .container { //전체 틀
         overflow: hidden; //gutter때문에 생기는 가로스크롤바 삭제
         max-width: 73em;
@@ -383,7 +397,21 @@ button.goto { // GO 버튼
     }
     .content-head { //컨텐츠 헤더
         font-weight: 400;
-        margin: 1em 0 1em;
+        font-size: 1.7em;
+        margin: 75px 0 30px 0;
+    }
+    .content-desc {
+        margin-top: 87px;
+        margin-bottom: 0px;
+        h4 {
+        font-size: 1.5em;
+        line-height: 155%;
+        }
+        @media @mobile, @tablet {
+            padding: 0 26px;
+            margin-top: 72px;
+            margin-bottom: 27px;
+        }
     }
     .content-subhead {
         color: @dark-grey;
@@ -400,18 +428,21 @@ button.goto { // GO 버튼
     }
 }
 
-
 /* -- 인트로 -- */
 .article-intro {
     margin-top: 4%;
     padding: 0em 1em;
     @media @tablet, @mobile {
-        padding: 1.5em 1em;
+        padding: 1.5em 1em 2.5em 1em;
 
     }
 }
 .l-box {
     padding: 2em;
+    @media @mobile, @tablet {
+        padding-top: 0em;
+        padding-bottom: 0em;
+    }
 }
 
 /* -- 오늘의 앱 -- */
@@ -452,9 +483,12 @@ button.goto { // GO 버튼
     .app-desc {
         .app-header {
             vertical-align: baseline;
+            @media @mobile, @tablet {
+                margin-bottom: 17px;
+            }
             .app-icon {
                 vertical-align: top;
-                width: 4.5em;
+                width: 4.2em;
                 display: inline-block;
                 margin-right: 2%;
             }
@@ -463,11 +497,13 @@ button.goto { // GO 버튼
                 div {
                     font-size:1.1em;
                     color: #919191;
+                    margin-bottom: 9px;
                 }
                 h3 {
                     font-size: 2em;
-                    // font-weight: 700;
-                    // padding: 0.7em 0 0.3em 0;
+                }
+                @media @mobile {
+                    font-size: 100%;
                 }
             }
         }
@@ -477,26 +513,23 @@ button.goto { // GO 버튼
             overflow: hidden;
             position: relative;
             height: 45px;
-            margin-top: 10px;
-            .animate;
+            margin-top: 20px;
             &:hover,
             &:active {
                 width: 330px;
-            }
-            &:hover > .download-btns,
-            &:active > .download-btns {
-                // display: block;
-                opacity: 1;
-                width: 330px;
+                .download-btns {
+                    // display: block;
+                    opacity: 1;
+                    width: 330px;
+                }
             }
             .download-trigger {
                 display: inline-block;
-                background:black;
+                background: @dark-grey;
                 width: 102px;
-                // height: 45px;
                 text-align: center;
                 line-height: 45px;
-                color: #ffffff;
+                color: white;
 
             }
             .download-btns {
@@ -504,24 +537,24 @@ button.goto { // GO 버튼
                 opacity: 0;
                 overflow: hidden;
                 height: 45px;
+
                 top: 0;
                 left: 102px;
                 width:0;
                 position: absolute;
-                .animate;
+                .animate-download;
                 a.download-btn {
                     display: inline-block;
-                    padding-top: 4px;
-                    background-color: blue;
+                    // padding-top: 4px;
                     text-decoration: none;
                     text-align: center;
-                    font-size: 1.2em;
+                    font-size: 15px;
                     color: white;
                     width:45px;
                     height:45px;
-                    .animate;
+                    line-height: 40px;
                     i {
-                        vertical-align: sub;
+                        // vertical-align: sub;
                     }
                     &.i-appstore {
                         background-color: rgb(71,132,237);
@@ -531,12 +564,18 @@ button.goto { // GO 버튼
                     }
                     &.i-amazon {
                         background-color: rgb(245,171,13);
+                        i {
+                            padding-right: 3px;
+                        }
                         &:hover {
                             background-color: darken(rgb(245,171,13), 10%);
                         }
                     }
                     &.i-googleplay {
                         background-color: rgb(119,188,44);
+                        i {
+                            font-size: 13px;
+                        }
                         &:hover {
                             background-color: darken(rgb(119,188,44), 10%);
                         }
@@ -559,7 +598,6 @@ button.goto { // GO 버튼
             @media @mobile, @tablet {
                 width: 330px;
                 .download-btns {
-                    // display: block;
                     opacity: 1;
                     width: 330px;
                 }
@@ -573,28 +611,20 @@ button.goto { // GO 버튼
         .app-title {
             h1, h3 {
                 font-size: 2.5em;
-                font-weight: 700;
-                // padding: 0.35em 0 0.2em 0;
             }
         }
     }
-    // li:nth-of-type(n+1) {
-    //     &:hover {
-    //         background-color: red;
-    //     }
-    // }
 }
 .app-text, .video-text {
-    border-left: 1px solid @more-light-grey;
+    border-left: 0px solid @more-light-grey;
     margin-left: 11px;
-    padding-left: 20px;
+    padding-left: 0px;
     p {
         margin: 0;
-        // padding-top:
     }
     @media @tablet, @mobile {
         p {
-            margin-left: 10px;
+            margin-left: 3px;
         }
         border: none;
         margin:0;
@@ -724,15 +754,8 @@ button.goto { // GO 버튼
             width: 100%;
 
         }
-        // background: #3fbf79;
         padding: 30px 0px;
         margin: 10px;
-        // color: #FFF;
-        // -webkit-border-radius: 3px;
-        // -moz-border-radius: 3px;
-        // border-radius: 3px;
-        // text-align: center;
-
         &:hover {
 
         }
@@ -764,8 +787,22 @@ button.goto { // GO 버튼
     }
 }
 
-
 /* -- FOOTER -- */
 .footer {
-    background: #111;
+    color: #B7B7B7;
+    letter-spacing: 0.5px;
+    line-height: 155%;
+    font-size: 0.9em;
+    @media @mobile {
+        font-size: 77%;
+    }
+}
+.f-box {
+    padding: 6em;
+    margin-top: 156px;
+    margin-bottom: 0px;
+    @media @mobile, @tablet {
+        padding: 3em;
+        margin-top: 60px;
+    }
 }
