@@ -1,8 +1,8 @@
 $(document).ready(function() {
     // 윈도우 리사이즈시 캐러셀 비율 변경
-    $('.content-wrapper').css('top', $(window).width() * 5 / 10);
+    $('.content-wrapper').css('top', $(window).width() * 8 / 17);
     $(window).resize(function() {
-        var responsiveHeight = $(window).width() * 5 / 10;
+        var responsiveHeight = $(window).width() * 8 / 17;
         $('.content-wrapper').css('top', responsiveHeight);
     });
 
@@ -39,29 +39,35 @@ $(document).ready(function() {
 
     // 모바일시 우측 하단 메뉴
     $('.i-menu').on('click', function() {
-      // $(this).closest('.home-menu').toggleClass('menu-toggle');
+      var $menu = $(this).closest('.home-menu')
+      $menu.toggleClass('menu-toggle');
+      if($menu.hasClass('menu-toggle')) {
+        $menu.find('ul').animate({'top': '-=245px'}, 300);
+      } else {
+        $menu.find('ul').animate({'top': '+=245px'}, 300);
+      }
       // $(this).closest('.home-menu').find('ul').animate({
       //   'top': '-=220px'
 
       // }, 'slow');
       // $(this).closest('.home-menu').find('ul').slideToggle('slow');
 
-      $(this).closest('.home-menu').find('ul').toggle(
-          function(){
-              console.log("hahahahaha");
-              debugger;
-              $('this').animate({
-                  // 'top': '-=220px'
-                  'bottom': '+=220px'
+      // $(this).closest('.home-menu').find('ul').toggle(
+      //     function(){
+      //         console.log("hahahahaha");
+      //         debugger;
+      //         $('this').animate({
+      //             // 'top': '-=220px'
+      //             'bottom': '+=220px'
 
-              }, 500);
-          },
-          function(){
-              $('this').animate({
-                  'bottom': '0px',
-                  // opacity: 0
-              }, 500);
-      });
+      //         }, 500);
+      //     },
+      //     function(){
+      //         $('this').animate({
+      //             'bottom': '0px',
+      //             // opacity: 0
+      //         }, 500);
+      // });
     });
 });
 
