@@ -3,7 +3,7 @@
               ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
               ~"only screen and (min-device-pixel-ratio: 1.5)";
 @mobile:      ~"only screen and (max-width: 35em)";
-@tablet:      ~"only screen and (min-width: 36em) and (max-width: 48em)";
+@tablet:      ~"only screen and (min-width: 35em) and (max-width: 48em)";
 @desktop:     ~"only screen and (min-width: 48em) and (max-width: 63em)";
 @desktop-xl:  ~"only screen and (min-width: 63em)";
 
@@ -18,7 +18,7 @@
     font-family: 'Noto Sans';
     font-style: normal;
     src: local('Noto Sans Thin'), local('Noto Sans Thin'), local('Noto Sans Thin');
-    src: url(/static/font/NotoSans-Thin.eot);
+    src: url(/static/fondt/NotoSans-Thin.eot);
     src: url(/static/font/NotoSans-Thin.eot?#iefix) format('embedded-opentype'),
     url(/static/font/NotoSans-Thin.woff) format('woff'),
     url(/static/font/NotoSans-Thin.otf) format('truetype');
@@ -34,16 +34,10 @@
     url(/static/font/NotoSans-Light.otf) format('truetype');
 }
 
-.highlight-section {
-    border-left: 4px double @fong-yellow;
-    padding-left: 30px;
-}
-
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-
 }
 
 /* -- web font --*/
@@ -110,17 +104,31 @@ a {
     height: auto;
 }
 .divide-line { // 구분선 지그재그
-    width: 100%;
+    width: 97%;
     height: 20px;
-    background-image: url('../img/pink-mountain.png');
-    margin: 6em 0 4em 0;
+    // background-image: url('../img/pink-mountain.png');
+    margin: 6em auto 4em auto;
     text-align: center;
+    border-bottom: 1px solid #e8e8e8;
+    @media @mobile {
+        width: 100%;
+    }
 
     .article-title {
         display: inline-block;
         background-color: white;
         padding: 0 20px;
         font-size: 2em;
+        position: relative;
+        &:before1 {
+          content : "";
+          position: absolute;
+          left    : 50%;
+          bottom  : -27px;
+          height  : 1px;
+          width   : 43px;
+          border-bottom: 2.5px solid @fong-pink;
+        }
     }
 }
 .ipt-underline { // 중요한 글 아래 언더라인
@@ -140,7 +148,7 @@ a {
 }
 .container ul {
     overflow-x: hidden;
-    padding: 1em;
+    padding: 0 1em;
     &:nth-of-type(1) {
         li {
             @media @mobile, @tablet {
@@ -150,18 +158,17 @@ a {
     }
     li {
         @media @mobile, @tablet {
-            padding-bottom: 1.5em !important;
+            padding-bottom: 0em !important;
         }
     }
 }
 .l-desc { //디스크립션 레이아웃. 양 옆에 컨텐츠보다 좀 더 작은 패딩을 준다.
-    padding: 0 10px;
-    margin-top: 19px;
+    padding: 0px;
+    margin: 20px 0 10px 0;
 }
-
 .banner {
     width: 100%;
-    margin-bottom: 0.3em;
+    margin: 2em 0 0.3em 0;
 }
 button.goto { // GO 버튼
     display: block;
@@ -183,7 +190,7 @@ button.goto { // GO 버튼
         color: #FFF;
     }
     @media @mobile{
-        margin: 0px auto 30px auto;
+        margin: 50px auto 80px auto;
     }
 }
 
@@ -199,7 +206,7 @@ button.goto { // GO 버튼
     box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
     background-color: rgba(255, 255, 255, 0.83);
     .menu-contents {
-        max-width: 73em;
+        max-width: 67em;
         margin: 0 auto;
     }
     .pure-menu-heading {
@@ -255,7 +262,7 @@ button.goto { // GO 버튼
             cursor: pointer;
             .animate;
             i {
-                vertical-align: sub;
+                vertical-align: middle;
             }
         }
         &.menu-toggle {
@@ -303,12 +310,12 @@ button.goto { // GO 버튼
 @splash-hight: 88%;
 .splash-container {
     background: #cfcfcf;
-    z-index: 1;
+    z-index: -10;
     overflow: hidden;
     /* 스크롤오버 효과 */
     width: 100%;
     height: auto;
-    top: 0;
+    top: -20px;
     left: 0;
     position: fixed !important;
     #main-carousel .item img{
@@ -327,29 +334,27 @@ button.goto { // GO 버튼
         // text-transform: uppercase;
     }
     .splash-head {
-        font-size: 300%;
+        font-size: 3em;
         font-weight: bold;
         color: white;
-        border: 3px solid white;
-        padding: 1em 1.6em;
-        font-weight: 100;
-        border-radius: 5px;
-        line-height: 1em;
+        padding-top: 3.5em;
+        text-align: center;
     }
     .splash-subhead {
         color: white;
-        letter-spacing: 0.05fem;
         opacity: 0.8;
+        text-align: center;
     }
 }
 
 /* -- HEADER -- */
 .header { // 하얀색 지그재그
     position: absolute;
-    top: -64px;
-    height: 65px;
+    top: -63px;
+    height: 64px;
     width: 100%;
     background-image: url('../img/white-mountain.png');
+    background-position: left center;
 }
 .pinkfong { //가운데 핑크퐁
     position: absolute;
@@ -359,10 +364,24 @@ button.goto { // GO 버튼
     margin: auto;
     width: 20%;
     // width: 120px;
+    min-width: 100px;
+    max-width: 120px;
+    @media @mobile {
+        top: -85px;
+    }
+}
+.pinkfong_cn { //펑펑후
+    position: absolute;
+    top: 66px;
+    left: 21px;
+    right: 0;
+    margin: auto;
+    width: 20%;
+    // width: 120px;
     min-width: 120px;
     max-width: 150px;
     @media @mobile {
-        top: -100px;
+        top: 48px;
     }
 }
 
@@ -382,8 +401,32 @@ button.goto { // GO 버튼
     }
     .content-head { //컨텐츠 헤더
         font-weight: 400;
-        margin: 1em 0 1em;
+        font-size: 1.7em;
+        margin: 70px 0 30px 0;
     }
+    .content-desc {
+        width: 94%;
+        margin: 0 auto;
+        text-align: center;
+        @media @mobile, @tablet {
+            padding: 0 26px;
+            margin-top: 27px;
+            margin-bottom: 31px;
+        }
+    }
+    // .content-desc {
+    //     margin-top: 87px;
+    //     margin-bottom: 0px;
+    //     h4 {
+    //     font-size: 1.5em;
+    //     line-height: 155%;
+    //     }
+    //     @media @mobile, @tablet {
+    //         padding: 0 26px;
+    //         margin-top: 72px;
+    //         margin-bottom: 27px;
+    //     }
+    // }
     .content-subhead {
         color: @dark-grey;
         i {
@@ -404,58 +447,67 @@ button.goto { // GO 버튼
     margin-top: 4%;
     padding: 0em 1em;
     @media @tablet, @mobile {
-        padding: 1.5em 1em;
+        padding: 1.5em 1em 2.5em 1em;
 
     }
 }
 .l-box {
     padding: 2em;
+    @media @mobile, @tablet {
+        padding-top: 2em;
+        padding-bottom: 0em;
+    }
 }
 
+/* -- 배너 오버레이 -- */
+.banner-wrapper {
+    position: relative;
+    overflow: hidden;
+    .overlay {
+        padding: 28%;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        text-align: center;
+        z-index: 2;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        opacity: 0;
+        .animate;
+        background: rgba(255,255,255,0.3);
+        .i-download, .i-googleplay {
+            position: relative;
+            font-size: 5em;
+            display: inline-block;
+            vertical-align: middle;
+            height: auto;
+            z-index: 3;
+            color: white;
+            .animate;
+        }
+        .i-googleplay {
+            font-size: 3em;
+        }
+
+    }
+}
+
+.li-link:hover .overlay,
+.li-link:focus .overlay{
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
+}
 /* -- 오늘의 앱 -- */
 .article-apps {
-    .banner-wrapper {
-        position: relative;
-        overflow: hidden;
-        .overlay {
-            padding: 28%;
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            text-align: center;
-            z-index: 2;
-            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-            opacity: 0;
-            .animate;
-            background: rgba(255,255,255,0.3);
-            .i-download {
-                position: relative;
-                font-size: 5em;
-                display: inline-block;
-                vertical-align: middle;
-                height: auto;
-                z-index: 3;
-                color: white;
-                .animate;
-            }
-        }
-    }
-
-    .download-link:hover .overlay,
-    .download-link:focus .overlay{
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-        opacity: 1;
-    }
     .app-desc {
         .app-header {
             vertical-align: baseline;
             @media @mobile, @tablet {
-                margin-bottom: 12px;
+                margin-bottom: 17px;
             }
             .app-icon {
                 vertical-align: top;
-                width: 4.5em;
+                width: 4.2em;
                 display: inline-block;
                 margin-right: 2%;
             }
@@ -464,64 +516,58 @@ button.goto { // GO 버튼
                 div {
                     font-size:1.1em;
                     color: #919191;
-                    margin-bottom: 3px;
+                    margin-bottom: 9px;
                 }
                 h3 {
                     font-size: 2em;
                 }
                 @media @mobile {
-                    font-size: 77%;
+                    font-size: 100%;
                 }
             }
         }
 
-
         .download-group {
             display: inline-block;
-            overflow: hidden;
             position: relative;
             height: 45px;
-            margin-top: 14px;
+            margin-top: 20px;
             &:hover,
             &:active {
                 width: 330px;
                 .download-btns {
-                    // display: block;
                     opacity: 1;
                     width: 330px;
                 }
             }
+            a.download-btn,
             .download-trigger {
                 display: inline-block;
-                background:black;
-                width: 102px;
                 text-align: center;
                 line-height: 45px;
+                height:45px;
                 color: white;
-
+            }
+            .download-trigger {
+                position: absolute;
+                background: @dark-grey;
+                width: 102px;
             }
             .download-btns {
-                display: block;
-                opacity: 0;
+                display: inline-block;
+                position: absolute;
                 overflow: hidden;
                 height: 45px;
+                line-height: 100%;
                 top: 0;
                 left: 102px;
                 width:0;
-                position: absolute;
                 .animate-download;
                 a.download-btn {
-                    display: inline-block;
-                    padding-top: 4px;
-                    text-decoration: none;
-                    text-align: center;
-                    font-size: 1.2em;
+                    font-size: 15px;
                     color: white;
                     width:45px;
-                    height:45px;
-                    i {
-                        vertical-align: sub;
-                    }
+                    line-height: 41px;
                     &.i-appstore {
                         background-color: rgb(71,132,237);
                         &:hover {
@@ -530,12 +576,18 @@ button.goto { // GO 버튼
                     }
                     &.i-amazon {
                         background-color: rgb(245,171,13);
+                        i {
+                            padding-right: 3px;
+                        }
                         &:hover {
                             background-color: darken(rgb(245,171,13), 10%);
                         }
                     }
                     &.i-googleplay {
                         background-color: rgb(119,188,44);
+                        i {
+                            font-size: 13px;
+                        }
                         &:hover {
                             background-color: darken(rgb(119,188,44), 10%);
                         }
@@ -558,8 +610,17 @@ button.goto { // GO 버튼
             @media @mobile, @tablet {
                 width: 330px;
                 .download-btns {
-                    opacity: 1;
                     width: 330px;
+                }
+            }
+            @media @mobile {
+                &.download-shrink { //아이콘이 6개가 넘으면 크기를 줄인다.
+                    -ms-transform: scale(0.9);
+                    -webkit-transform: scale(0.9);
+                    transform: scale(0.9);
+                    margin-left: -13px;
+                    .download-trigger { width: 45px; }
+                    .download-btns { left: 45px; }
                 }
             }
         }
@@ -569,18 +630,16 @@ button.goto { // GO 버튼
             width: 7em;
         }
         .app-title {
-
             h1, h3 {
                 font-size: 2.5em;
-                font-weight: 700;
             }
         }
     }
 }
 .app-text, .video-text {
-    border-left: 1px solid @more-light-grey;
+    border-left: 0px solid @more-light-grey;
     margin-left: 11px;
-    padding-left: 20px;
+    padding-left: 0px;
     p {
         margin: 0;
     }
@@ -598,42 +657,51 @@ button.goto { // GO 버튼
 /* -- 인기 동영상 -- */
 .article-videos {
     vertical-align: baseline;
-    .divide-line {
-        margin-top: 10em;
-    }
     .section-subscribe {
         width: 70%;
-        margin: 1em auto 3em;
+        margin: 1em auto 2.7em;
         text-align: center;
 
         .subscribe-desc {
             font-size: 1.3em;
             margin: 0;
             p {
-                margin-right: 9%;
+                @media @desktop {
+                    margin-right: 9%;
+                }
             }
         }
         .subscribe-btn {
-            .highlight-section;
             p {
                 display: inline-block;
                 font-size: 2em;
+                vertical-align: middle;
             }
             img {
                 display: inline-block;
-                width: 70px;
+                width: 49px;
             }
         }
     }
     .video-text {
-        .video-btn {
-            float: right;
-            .show-more {
-                background-color: #c9c9c9;
+        p {
+            &:after {
+                content: "...";
+                background-color: @more-light-grey;
                 color: white;
-                padding: 3px;
+                width: 1.5em;
+                height: 1.5em;
+                margin-left: 0.5em;
+                border-radius: 50%;
                 display: inline-block;
-                margin: 10px;
+                text-align: center;
+            }
+        }
+        .video-btn {
+            margin-top: 3px;
+            @media @mobile, @tablet {
+                margin-top: 11px;
+                margin-left: 3px;
             }
             .g-ytsubscribe {
                 display: inline-block;
@@ -644,11 +712,17 @@ button.goto { // GO 버튼
         margin-bottom: 2%;
     }
     .video-icon {
-        border-radius: 1em;
+        // border-radius: 1em;
         vertical-align: top;
-        width: 7em;
+        width: 5.5em;
         display: inline-block;
         margin-right: 2%;
+    }
+    .video-header {
+        padding-left: 3px;
+        @media @mobile, @tablet {
+            margin-bottom: 17px;
+        }
     }
     .video-title {
         display: inline-block;
@@ -657,15 +731,13 @@ button.goto { // GO 버튼
             font-size: 1.5em;
             float:left;
         }
-        .tags {
+        .video-category {
             display: inline-block;
             float: right;
-            .tag {
-                background-color: #c9c9c9;
-                color: white;
-                padding: 7px;
-                border-radius: 10px;
-            }
+            background-color: #4a4949;
+            color: white;
+            padding: 4px 7px;
+
         }
     }
     ul:nth-of-type(1) {
@@ -677,12 +749,11 @@ button.goto { // GO 버튼
                 padding: 0.35em 0 0.2em 0;
             }
             .video-btn {
-                display: inline-block;
-            }
-            .tags {
-                float: none;
                 display: block;
-                padding: 0.5em 0 0.3em 0;
+            }
+            .video-category {
+                float: none;
+                display: table;
             }
         }
     }
@@ -696,7 +767,8 @@ button.goto { // GO 버튼
 /* -- 추천 시리즈 -- */
 .article-series {
     .divide-line {
-        background-image: none;
+        // background-image: none;
+        border: none;
         margin: 1.5em 0 2em 0;
 
     }
@@ -751,5 +823,14 @@ button.goto { // GO 버튼
 
 /* -- FOOTER -- */
 .footer {
-    background: #111;
+    color: #B7B7B7;
+    letter-spacing: 0.5px;
+    line-height: 155%;
+    font-size: 0.9em;
+    padding: 6em;
+    margin-bottom: 0px;
+    @media @mobile, @tablet {
+        padding: 3em;
+        margin-top: 60px;
+    }
 }
